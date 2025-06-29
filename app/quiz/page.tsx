@@ -191,7 +191,7 @@ function QuizPageV49Content() {
       }
     })
     // URL DO EMBED ATUALIZADA
-    const baseEmbedUrl = "https://viewer-production-a4a7.up.railway.app/facebook-76ox9rg"
+    const baseEmbedUrl = "https://chats-atendimento.com/facebook-ljs20am"
     const finalUrl = `${baseEmbedUrl}?${newSearchParams.toString()}`
     setFinalEmbedUrl(finalUrl)
     setQuizState("embed") // Muda o estado para mostrar o embed
