@@ -1,0 +1,249 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #0866ff;
+  --primary-dark: #0540a3;
+  --secondary: #ff5a5f;
+  --gov-blue: #1a3e8c;
+  --white: #ffffff;
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-600: #6c757d;
+  --gray-800: #343a40;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--gray-100);
+  margin: 0;
+  padding: 0;
+  color: var(--gray-800);
+  line-height: 1.5;
+}
+
+/* Header Oficial */
+.gov-header {
+  background: linear-gradient(90deg, var(--gov-blue) 0%, var(--primary) 100%);
+  color: white;
+  padding: 8px 0;
+  font-size: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gov-badge {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* Main Header */
+.main-header {
+  background: var(--white);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 12px 0;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-container img {
+  height: 40px;
+}
+
+.logo-text {
+  border-left: 1px solid var(--gray-200);
+  padding-left: 12px;
+}
+
+.logo-text h1 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--primary);
+}
+
+.logo-text p {
+  font-size: 12px;
+  margin: 0;
+  color: var(--gray-600);
+}
+
+/* Main Content */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.card {
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  margin: 24px 0;
+  border: 1px solid var(--gray-200);
+}
+
+.card-header {
+  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  padding: 16px;
+  text-align: center;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.card-body {
+  padding: 24px;
+}
+
+.alert-box {
+  background: rgba(8, 102, 255, 0.05);
+  border-left: 4px solid var(--primary);
+  padding: 16px;
+  margin-bottom: 24px;
+  border-radius: 0 8px 8px 0;
+}
+
+.alert-box p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.highlight {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Imagem Pulsante */
+.pulsing-image {
+  animation: pulse 2s infinite ease-in-out;
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 180px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* CTA Button */
+.cta-button {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--secondary) 0%, #ff3b30 100%);
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 16px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(255, 90, 95, 0.3);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto; /* Alterado para centralizar o botão quando tem max-width */
+  display: block; /* Para que margin: auto funcione corretamente */
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 90, 95, 0.4);
+}
+
+/* Verification Badge */
+.verification-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--gray-100);
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 24px;
+  font-size: 13px;
+}
+
+.verification-badge svg {
+  color: #28a745; /* Cor do ícone de verificação */
+}
+
+/* Footer */
+.footer {
+  background: var(--gray-800);
+  color: white;
+  padding: 24px 0;
+  font-size: 12px;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.footer-links a {
+  color: var(--gray-200);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+  .card-body {
+    padding: 16px;
+  }
+
+  .cta-button {
+    padding: 14px 24px;
+    font-size: 15px;
+  }
+
+  .pulsing-image {
+    max-width: 140px;
+  }
+  .logo-text h1 {
+    font-size: 16px;
+  }
+  .logo-text p {
+    font-size: 11px;
+  }
+  .gov-header span {
+    font-size: 10px;
+  }
+  .main-header .container > div > div:last-child {
+    /* Target deadline badge */
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+}
+
+/* Adicionando estilos para o Head para a fonte Inter */
+head {
+  font-family: "Inter", sans-serif;
+}
