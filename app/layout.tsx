@@ -44,7 +44,7 @@ export default function RootLayout({
           t.src=v;s=b.getElementsByTagName(e)[0];
           s.parentNode.insertBefore(t,s)}(window, document,'script',
           'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '1231880035297764');
+          fbq('init', '656489137413556');
           fbq('track', 'PageView');
         `}</Script>
 
@@ -54,20 +54,20 @@ export default function RootLayout({
             height="1"
             width="1"
             style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=1231880035297764&ev=PageView&noscript=1"
+            src="https://www.facebook.com/tr?id=656489137413556&ev=PageView&noscript=1"
             alt=""
           />
         </noscript>
 
         {/* Script Utmify Pixel Config */}
-        <Script id="utmify-pixel-config" strategy="afterInteractive">{`
-          window.pixelId = "68550c7851096d3134a05e1a";
-          var a = document.createElement("script");
-          a.setAttribute("async", "");
-          a.setAttribute("defer", "");
-          a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-          document.head.appendChild(a);
-        `}</Script>
+        <script>
+        window.pixelId = "68620de23f89febbb425964f";
+        var a = document.createElement("script");
+        a.setAttribute("async", "");
+        a.setAttribute("defer", "");
+        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+        document.head.appendChild(a);
+       </script>
 
         {/* Script Utmify UTMs Helper */}
         <Script
@@ -77,6 +77,14 @@ export default function RootLayout({
           data-utmify-prevent-xcod-sck=""
           data-utmify-prevent-subids=""
         />
+
+        <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "s7f6830jhb");
+        </script>
 
         {/* Inicializador da sua lógica de tracking (Facebook Pixel, etc.) */}
         <TrackingInitializer />
