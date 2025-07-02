@@ -336,7 +336,7 @@
     }, 50);
   }
   function redirecionarParaPagamento() {
-  const urlBase = "/ups/upsell1/redcheckout?"
+  const urlBase = "/ups/upsell1/redcheckout"
   const currentParams = new URLSearchParams(window.location.search)
   window.location.href = `${urlBase}?${currentParams.toString()}`
 }
