@@ -28,7 +28,7 @@ const quizQuestions = [
     id: 1,
     type: "checkbox",
     question:
-      "Para iniciarmos, selecione o(s) tipo(s) de problema que você enfrentou recentemente no Facebook ou em plataformas online:",
+    "Para iniciarmos, selecione o(s) tipo(s) de problema que você enfrentou recentemente no Facebook ou em plataformas online:",
     options: golpeOptions,
     paramName: "problemas",
   },
@@ -83,7 +83,7 @@ const ConnectingLoader: React.FC<ConnectingLoaderProps> = ({ onComplete }) => {
         const newProgress = prev + increment
         if (newProgress >= 100) {
           if (progressInterval) clearInterval(progressInterval)
-          return 100
+            return 100
         }
         return newProgress
       })
@@ -93,7 +93,7 @@ const ConnectingLoader: React.FC<ConnectingLoaderProps> = ({ onComplete }) => {
       clearTimeout(completeTimer)
       if (progressInterval) clearInterval(progressInterval)
     }
-  }, [onComplete])
+}, [onComplete])
 
   return (
     <div className="min-h-screen font-sans text-foreground bg-facebook-gray-bg flex flex-col items-center justify-center p-4 text-center">
@@ -110,12 +110,12 @@ const ConnectingLoader: React.FC<ConnectingLoaderProps> = ({ onComplete }) => {
           </AvatarFallback>
         </Avatar>
         <>
-          <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-1 sm:mb-1.5">
-            Conectando com Assistente Virtual...
-          </h1>
-          <p className="text-xs sm:text-sm md:text-md text-facebook-gray-text mb-4 sm:mb-5">
-            Você será atendido(a) por nosso assistente virtual. Aguarde enquanto preparamos sua conexão segura.
-          </p>
+        <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-1 sm:mb-1.5">
+          Conectando com Assistente Virtual...
+        </h1>
+        <p className="text-xs sm:text-sm md:text-md text-facebook-gray-text mb-4 sm:mb-5">
+          Você será atendido(a) por nosso assistente virtual. Aguarde enquanto preparamos sua conexão segura.
+        </p>
         </>
         <div className="w-full px-2 sm:px-4 mb-1.5 sm:mb-2">
           <Progress value={progress} className="h-2 sm:h-2.5" />
@@ -129,7 +129,7 @@ const ConnectingLoader: React.FC<ConnectingLoaderProps> = ({ onComplete }) => {
         </div>
       </div>
     </div>
-  )
+    )
 }
 
 function QuizPageV49Content() {
@@ -157,7 +157,7 @@ function QuizPageV49Content() {
   const isCurrentQuestionAnswered = () => {
     const currentQuestionData = quizQuestions[currentStep]
     if (!currentQuestionData) return false
-    const currentAnswer = answers[currentQuestionData.id]
+      const currentAnswer = answers[currentQuestionData.id]
     if (currentQuestionData.type === "checkbox") {
       return Array.isArray(currentAnswer) && currentAnswer.length > 0
     }
@@ -202,18 +202,10 @@ function QuizPageV49Content() {
   }
 
   if (quizState === "embed" && finalEmbedUrl) {
-    return (
-      <div className="w-full h-screen bg-facebook-gray-bg">
-        <iframe
-          src={finalEmbedUrl}
-          title="Portal Seguro de Verificação"
-          className="w-full h-full border-0"
-          allowFullScreen
-          sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals"
-          loading="lazy"
-        />
-      </div>
-    )
+    if (typeof window !== "undefined") {
+      window.location.href = finalEmbedUrl
+    }
+    return <p>Redirecionando para verificação segura...</p>
   }
 
   const currentQuestionData = quizQuestions[currentStep]
@@ -223,7 +215,7 @@ function QuizPageV49Content() {
         <Loader2 className="h-12 w-12 text-facebook-blue animate-spin" />
         <p className="mt-4 text-lg text-facebook-gray-text">Carregando quiz...</p>
       </div>
-    )
+      )
   }
 
   const progressValue = ((currentStep + 1) / quizQuestions.length) * 100
@@ -276,9 +268,9 @@ function QuizPageV49Content() {
                     />
                     <span className="text-xs sm:text-sm font-medium">{option.label}</span>
                   </Label>
-                ))}
+                  ))}
               </div>
-            )}
+              )}
             {currentQuestionData.type === "radio" && (
               <RadioGroup
                 value={(answers[currentQuestionData.id] as string) || ""}
@@ -294,9 +286,9 @@ function QuizPageV49Content() {
                     <RadioGroupItem value={option.value} id={`${currentQuestionData.id}-${option.value}`} />
                     <span className="text-xs sm:text-sm font-medium">{option.label}</span>
                   </Label>
-                ))}
+                  ))}
               </RadioGroup>
-            )}
+              )}
           </div>
           <div className="flex justify-between items-center mt-6 sm:mt-8 border-t border-facebook-gray-border p-4 sm:p-6">
             <Button
@@ -316,13 +308,13 @@ function QuizPageV49Content() {
               {currentStep === quizQuestions.length - 1 ? "Concluir Verificação" : "Avançar"}
               {currentStep < quizQuestions.length - 1 ? (
                 <ChevronRight className="h-3.5 w-3.5 sm:h-4 sm:h-4 ml-1" />
-              ) : null}
+                ) : null}
             </Button>
           </div>
         </div>
       </main>
     </div>
-  )
+    )
 }
 
 export default function PageV49() {
@@ -337,5 +329,5 @@ export default function PageV49() {
     >
       <QuizPageV49Content />
     </Suspense>
-  )
+    )
 }
